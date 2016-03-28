@@ -30,6 +30,15 @@ files are placed.
 ;;; Disable initial start-up message
 (setq inhibit-startup-message t)
 
+;;; Enable MELPA if possible
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (add-to-list
+   'package-archives
+   '("melpa" . "http://melpa.org/packages/")
+   t)
+  (package-initialize))
+
 ;;;; Load user-specific configuration files
 ;; =============================================
 ;;; Load configuration files for different modes
