@@ -39,6 +39,11 @@ files are placed.
    t)
   (package-initialize))
 
+;;; Enable flycheck, if installed
+(when (>= emacs-major-version 24)
+  (when (package-installed-p 'flycheck)
+    (add-hook 'after-init-hook #'global-flycheck-mode)))
+
 ;;;; Load user-specific configuration files
 ;; =============================================
 ;;; Load configuration files for different modes
