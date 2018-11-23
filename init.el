@@ -44,8 +44,28 @@ files are placed.
   (when (package-installed-p 'flycheck)
     (add-hook 'after-init-hook #'global-flycheck-mode)))
 
+;;; Use whitespace-mode globally
+(require 'whitespace)
+(setq whitespace-style (quote (face
+			       spaces tabs newline
+			       space-mark tab-mark newline-mark
+			       lines-tail trailing )))
+(global-whitespace-mode t)
+
 ;;;; Load user-specific configuration files
 ;; =============================================
 ;;; Load configuration files for different modes
 (load-directory (expand-file-name "config"
 				  user-emacs-directory))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (julia-repl julia-mode haskell-mode markdown-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
